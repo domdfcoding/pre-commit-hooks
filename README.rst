@@ -29,7 +29,7 @@ See also: https://github.com/pre-commit/pre-commit
 
 
 .. |travis| image:: https://github.com/domdfcoding/pre-commit-hooks/workflows/Linux%20Tests/badge.svg
-	:target: https://github.com/domdfcoding/pre-commit-hooks/actions?query=workflow%3A%Linux+Tests%22
+	:target: https://github.com/domdfcoding/pre-commit-hooks/actions?query=workflow%3A%22Linux+Tests%22
 	:alt: Linux Test Status
 
 .. |actions_windows| image:: https://github.com/domdfcoding/pre-commit-hooks/workflows/Windows%20Tests/badge.svg
