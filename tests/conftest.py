@@ -1,11 +1,9 @@
 # 3rd party
 import pytest
 from _pytest.fixtures import FixtureRequest
-from shippinglabel.pypi import PYPI_API
-
-# 3rd party
 from betamax import Betamax  # type: ignore
 from domdf_python_tools.paths import PathPlus
+from shippinglabel.pypi import PYPI_API
 
 pytest_plugins = ("domdf_python_tools.testing", )
 
