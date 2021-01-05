@@ -1,3 +1,5 @@
+# noqa: D100
+
 __all__ = ["FAIL", "PASS"]
 
 PASS = 0

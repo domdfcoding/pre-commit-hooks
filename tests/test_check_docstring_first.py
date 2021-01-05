@@ -40,10 +40,7 @@ TESTS = (
 		(b'x = "foo"\n', 0, ''),
 		)
 
-all_tests = pytest.mark.parametrize(
-		("contents", "expected", "expected_out"),
-		TESTS,
-		)
+all_tests = pytest.mark.parametrize("contents, expected, expected_out", TESTS)
 
 
 @all_tests
