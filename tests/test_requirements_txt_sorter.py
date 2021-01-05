@@ -7,8 +7,8 @@ from pre_commit_hooks.util import FAIL, PASS
 
 
 @pytest.mark.parametrize(
-		("input_s", "expected_retval", "output"),
-		(
+		"input_s, expected_retval, output",
+		[
 				('', PASS, ''),
 				('\n', FAIL, ''),
 				('# intentionally empty\n', PASS, '# intentionally empty\n'),
@@ -72,7 +72,7 @@ from pre_commit_hooks.util import FAIL, PASS
 						'wxpython>=4.0.7; platform_system == "Windows" and python_version < "3.9"\n'
 						'wxpython>=4.0.7; platform_system == "Darwin" and python_version < "3.9"\n',
 						),
-				),
+				],
 		)
 def test_integration(input_s, expected_retval, output, tmp_pathplus):
 	path = tmp_pathplus / "requirements.txt"

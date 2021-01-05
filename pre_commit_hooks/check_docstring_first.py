@@ -1,10 +1,36 @@
+#!/usr/bin/env python3
+#
+#  check_docstring_first.py
 """
-Based on https://github.com/pre-commit/pre-commit-hooks/blob/master/pre_commit_hooks/check_docstring_first.py
-
-Modified to permit multiple "docstring" like objects
-as long as the first one is at the top of the file.
-This is useful when writing Sphinx docstrings for attributes, variables etc.
+Checks the docstring does not occur after any code.
 """
+#
+#  Copyright © 2020-2021 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#  Based on https://github.com/pre-commit/pre-commit-hooks
+#  Copyright (c) 2014 pre-commit dev team: Anthony Sottile, Ken Struys
+#
+#  Modified to permit multiple "docstring" like objects
+#  as long as the first one is at the top of the file.
+#  This is useful when writing Sphinx docstrings for attributes, variables etc.
+#
+#  Permission is hereby granted, free of charge, to any person obtaining a copy
+#  of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#  copies of the Software, and to permit persons to whom the Software is
+#  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in all
+#  copies or substantial portions of the Software.
+#
+#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+#  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+#  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+#  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+#  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+#  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+#  OR OTHER DEALINGS IN THE SOFTWARE.
+#
 
 # stdlib
 import argparse
@@ -34,7 +60,7 @@ def check_docstring_first(src: bytes, filename: str = "<unknown>") -> int:
 
 	A string will be considered a docstring if it is a STRING token with a
 	col offset of 0.
-	"""
+	"""  # noqa: D400
 
 	found_docstring_line = None
 	found_code_line = None
@@ -60,7 +86,7 @@ def check_docstring_first(src: bytes, filename: str = "<unknown>") -> int:
 	return PASS
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Optional[Sequence[str]] = None) -> int:  # noqa: D103
 	parser = argparse.ArgumentParser()
 	parser.add_argument("filenames", nargs='*')
 	args = parser.parse_args(argv)
