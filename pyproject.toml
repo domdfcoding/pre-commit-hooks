@@ -1,3 +1,27 @@
 [build-system]
 requires = [ "setuptools>=40.6.0", "wheel>=0.34.2",]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pre-commit-hooks"
+version = "0.2.0"
+description = "Some useful hooks for pre-commit."
+readme = "README.rst"
+keywords = [ "pre-commit",]
+dynamic = [ "requires-python", "classifiers", "dependencies",]
+[[project.authors]]
+email = "dominic@davis-foster.co.uk"
+name = "Dominic Davis-Foster"
+
+[project.license]
+file = "LICENSE"
+
+[project.urls]
+Homepage = "https://github.com/domdfcoding/pre-commit-hooks"
+"Issue Tracker" = "https://github.com/domdfcoding/pre-commit-hooks/issues"
+"Source Code" = "https://github.com/domdfcoding/pre-commit-hooks"
+
+[project.scripts]
+requirements-txt-sorter = "pre_commit_hooks.requirements_txt_sorter:main"
+bind-requirements = "pre_commit_hooks.bind_requirements:main"
+check-docstring-first = "pre_commit_hooks.check_docstring_first:main"
