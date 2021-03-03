@@ -27,11 +27,7 @@ bind-requirements = "pre_commit_hooks.bind_requirements:main"
 check-docstring-first = "pre_commit_hooks.check_docstring_first:main"
 
 [tool.whey]
-base-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "Topic :: Utilities",
-]
+base-classifiers = [ "Development Status :: 4 - Beta", "Intended Audience :: Developers", "Topic :: Utilities",]
 python-versions = [ "3.6", "3.7", "3.8", "3.9",]
 python-implementations = [ "CPython", "PyPy",]
 platforms = [ "Windows", "macOS", "Linux",]
