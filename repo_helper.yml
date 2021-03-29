@@ -12,6 +12,8 @@ short_desc: 'Some useful hooks for pre-commit.'
 enable_conda: false
 on_pypi: false
 enable_docs: false
+min_coverage: 95
+use_whey: true
 
 console_scripts:
  - "requirements-txt-sorter = pre_commit_hooks.requirements_txt_sorter:main"
@@ -32,9 +34,6 @@ classifiers:
  - 'Development Status :: 4 - Beta'
  - 'Intended Audience :: Developers'
  - 'Topic :: Utilities'
-
-min_coverage: 95
-use_whey: true
 
 keywords:
  - pre-commit
