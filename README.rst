@@ -23,7 +23,7 @@ See also: https://github.com/pre-commit/pre-commit
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained|
 	* - QA
-	  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
+	  - |codefactor| |actions_flake8| |actions_mypy|
 	* - Other
 	  - |license| |language| |requires|
 
@@ -47,8 +47,8 @@ See also: https://github.com/pre-commit/pre-commit
 	:target: https://github.com/domdfcoding/pre-commit-hooks/actions?query=workflow%3A%22mypy%22
 	:alt: mypy status
 
-.. |requires| image:: https://requires.io/github/domdfcoding/pre-commit-hooks/requirements.svg?branch=master
-	:target: https://requires.io/github/domdfcoding/pre-commit-hooks/requirements/?branch=master
+.. |requires| image:: https://dependency-dash.herokuapp.com/github/domdfcoding/pre-commit-hooks/badge.svg
+	:target: https://dependency-dash.herokuapp.com/github/domdfcoding/pre-commit-hooks/
 	:alt: Requirements Status
 
 .. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/pre-commit-hooks/master?logo=coveralls
@@ -76,10 +76,6 @@ See also: https://github.com/pre-commit/pre-commit
 
 .. |maintained| image:: https://img.shields.io/maintenance/yes/2021
 	:alt: Maintenance
-
-.. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/domdfcoding/pre-commit-hooks/master.svg
-	:target: https://results.pre-commit.ci/latest/github/domdfcoding/pre-commit-hooks/master
-	:alt: pre-commit.ci status
 
 .. end shields
 
