@@ -15,31 +15,31 @@ from pre_commit_hooks.util import FAIL, PASS
 				pytest.param('', PASS, '', id="empty"),
 				pytest.param('\n', PASS, '\n', id="newline_only"),
 				pytest.param('# intentionally empty\n', PASS, '# intentionally empty\n', id="intentionally_empty"),
-				pytest.param('foo\n# comment at end\n', FAIL, '# comment at end\nfoo>=.1\n', id="comment_at_end"),
-				pytest.param('foo\nbar\n', FAIL, 'bar>=0.2.1\nfoo>=.1\n', id="foo_bar"),
-				pytest.param('bar\nfoo\n', FAIL, 'bar>=0.2.1\nfoo>=.1\n', id="bar_foo"),
+				pytest.param('f\n# comment at end\n', FAIL, '# comment at end\nf>=0.0.1\n', id="comment_at_end"),
+				pytest.param('f\nbar\n', FAIL, 'bar>=0.2.1\nf>=0.0.1\n', id="foo_bar"),
+				pytest.param('bar\nf\n', FAIL, 'bar>=0.2.1\nf>=0.0.1\n', id="bar_foo"),
 				pytest.param('a\nc\nb\n', FAIL, 'a>=1.0\nb>=1.0.0\nc>=0.1.0\n', id="a_c_b"),
 				pytest.param('a\nb\nc', FAIL, 'a>=1.0\nb>=1.0.0\nc>=0.1.0\n', id="a_b_b"),
 				pytest.param(
-						'#comment1\nfoo\n#comment2\nbar\n',
+						'#comment1\nf\n#comment2\nbar\n',
 						FAIL,
-						'#comment1\n#comment2\nbar>=0.2.1\nfoo>=.1\n',
+						'#comment1\n#comment2\nbar>=0.2.1\nf>=0.0.1\n',
 						id="comment_foo_comment_bar"
 						),
 				pytest.param(
-						'#comment1\nbar\n#comment2\nfoo\n',
+						'#comment1\nbar\n#comment2\nf\n',
 						FAIL,
-						'#comment1\n#comment2\nbar>=0.2.1\nfoo>=.1\n',
+						'#comment1\n#comment2\nbar>=0.2.1\nf>=0.0.1\n',
 						id="comment_bar_comment_foo"
 						),
 				pytest.param(
-						'#comment\n\nfoo\nbar\n', FAIL, '#comment\nbar>=0.2.1\nfoo>=.1\n', id="comment_foo_bar"
+						'#comment\n\nf\nbar\n', FAIL, '#comment\nbar>=0.2.1\nf>=0.0.1\n', id="comment_foo_bar"
 						),
 				pytest.param(
-						'#comment\n\nbar\nfoo\n', FAIL, '#comment\nbar>=0.2.1\nfoo>=.1\n', id="comment_barfoo_"
+						'#comment\n\nbar\nf\n', FAIL, '#comment\nbar>=0.2.1\nf>=0.0.1\n', id="comment_barfoo_"
 						),
-				pytest.param('\nfoo\nbar\n', FAIL, 'bar>=0.2.1\nfoo>=.1\n', id="foo_bar_2"),
-				pytest.param('\nbar\nfoo\n', FAIL, 'bar>=0.2.1\nfoo>=.1\n', id="bar_foo_2"),
+				pytest.param('\nf\nbar\n', FAIL, 'bar>=0.2.1\nf>=0.0.1\n', id="foo_bar_2"),
+				pytest.param('\nbar\nf\n', FAIL, 'bar>=0.2.1\nf>=0.0.1\n', id="bar_foo_2"),
 				pytest.param(
 						'pyramid-foo==1\npyramid>=2\n',
 						FAIL,
@@ -73,15 +73,15 @@ from pre_commit_hooks.util import FAIL, PASS
 						id="real_requirements"
 						),
 				pytest.param(
-						'bar\npkg-resources==0.0.0\nfoo\n',
+						'bar\npkg-resources==0.0.0\nf\n',
 						FAIL,
-						'bar>=0.2.1\nfoo>=.1\npkg-resources==0.0.0\n',
+						'bar>=0.2.1\nf>=0.0.1\npkg-resources==0.0.0\n',
 						id="bar_pkg-resources_foo"
 						),
 				pytest.param(
-						'foo\npkg-resources==0.0.0\nbar\n',
+						'f\npkg-resources==0.0.0\nbar\n',
 						FAIL,
-						'bar>=0.2.1\nfoo>=.1\npkg-resources==0.0.0\n',
+						'bar>=0.2.1\nf>=0.0.1\npkg-resources==0.0.0\n',
 						id="foo_pkg-resources_bar"
 						),
 				pytest.param('foo???1.2.3\nbar\n', FAIL, 'foo???1.2.3\nbar>=0.2.1\n', id="bad_specifiers"),
