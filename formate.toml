@@ -53,4 +53,4 @@ known_third_party = [
     "shippinglabel_pypi",
     "urllib3",
 ]
-known_first_party = "pre_commit_hooks"
+known_first_party = [ "pre_commit_hooks",]
