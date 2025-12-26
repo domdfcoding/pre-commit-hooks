@@ -24,19 +24,25 @@ from pre_commit_hooks.util import FAIL, PASS
 						'#comment1\nf\n#comment2\nbar\n',
 						FAIL,
 						'#comment1\n#comment2\nbar>=0.2.1\nf>=0.0.1\n',
-						id="comment_foo_comment_bar"
+						id="comment_foo_comment_bar",
 						),
 				pytest.param(
 						'#comment1\nbar\n#comment2\nf\n',
 						FAIL,
 						'#comment1\n#comment2\nbar>=0.2.1\nf>=0.0.1\n',
-						id="comment_bar_comment_foo"
+						id="comment_bar_comment_foo",
 						),
 				pytest.param(
-						'#comment\n\nf\nbar\n', FAIL, '#comment\nbar>=0.2.1\nf>=0.0.1\n', id="comment_foo_bar"
+						'#comment\n\nf\nbar\n',
+						FAIL,
+						'#comment\nbar>=0.2.1\nf>=0.0.1\n',
+						id="comment_foo_bar",
 						),
 				pytest.param(
-						'#comment\n\nbar\nf\n', FAIL, '#comment\nbar>=0.2.1\nf>=0.0.1\n', id="comment_barfoo_"
+						'#comment\n\nbar\nf\n',
+						FAIL,
+						'#comment\nbar>=0.2.1\nf>=0.0.1\n',
+						id="comment_barfoo_",
 						),
 				pytest.param('\nf\nbar\n', FAIL, 'bar>=0.2.1\nf>=0.0.1\n', id="foo_bar_2"),
 				pytest.param('\nbar\nf\n', FAIL, 'bar>=0.2.1\nf>=0.0.1\n', id="bar_foo_2"),
@@ -44,7 +50,7 @@ from pre_commit_hooks.util import FAIL, PASS
 						'pyramid-foo==1\npyramid>=2\n',
 						FAIL,
 						'pyramid>=2\npyramid-foo==1\n',
-						id="pyramid-foo_pyramid"
+						id="pyramid-foo_pyramid",
 						),
 				pytest.param(
 						'a==1\n'
@@ -70,19 +76,19 @@ from pre_commit_hooks.util import FAIL, PASS
 						'ocflib\nDjango\nPyMySQL\n',
 						FAIL,
 						'django>=3.1.5\nocflib>=2020.12.5.10.49\npymysql>=0.10.1\n',
-						id="real_requirements"
+						id="real_requirements",
 						),
 				pytest.param(
 						'bar\npkg-resources==0.0.0\nf\n',
 						FAIL,
 						'bar>=0.2.1\nf>=0.0.1\npkg-resources==0.0.0\n',
-						id="bar_pkg-resources_foo"
+						id="bar_pkg-resources_foo",
 						),
 				pytest.param(
 						'f\npkg-resources==0.0.0\nbar\n',
 						FAIL,
 						'bar>=0.2.1\nf>=0.0.1\npkg-resources==0.0.0\n',
-						id="foo_pkg-resources_bar"
+						id="foo_pkg-resources_bar",
 						),
 				pytest.param('foo???1.2.3\nbar\n', FAIL, 'foo???1.2.3\nbar>=0.2.1\n', id="bad_specifiers"),
 				pytest.param(
@@ -97,7 +103,7 @@ from pre_commit_hooks.util import FAIL, PASS
 						'pyreadline @ https://github.com/domdfcoding/3.10-Wheels/raw/936f0570b561f3cda0be94d93066a11c6fe782f1/pyreadline-2.0-py3-none-any.whl ; python_version == "3.10" and platform_system == "Windows"',
 						FAIL,
 						'pyreadline@ https://github.com/domdfcoding/3.10-Wheels/raw/936f0570b561f3cda0be94d93066a11c6fe782f1/pyreadline-2.0-py3-none-any.whl ; python_version == "3.10" and platform_system == "Windows"\n',
-						id="url"
+						id="url",
 						),
 				pytest.param("shutil", FAIL, "shutil", id="not_on_pypi"),
 				]

@@ -59,12 +59,13 @@ NON_CODE_TOKENS = frozenset((
 
 def check_docstring_first(src: bytes, filename: str = "<unknown>") -> int:
 	"""
-	Returns nonzero if the source has what looks like a docstring that is
-	not at the beginning of the source.
+	Returns nonzero if the source has what looks like a docstring that is not at the beginning of the source.
 
-	A string will be considered a docstring if it is a STRING token with a
-	col offset of 0.
-	"""  # noqa: D400
+	A string will be considered a docstring if it is a STRING token with a col offset of 0.
+
+	:param src:
+	:param filename:
+	"""
 
 	found_docstring_line = None
 	found_code_line = None
@@ -92,7 +93,7 @@ def check_docstring_first(src: bytes, filename: str = "<unknown>") -> int:
 
 @click.argument("filenames", nargs=-1, type=click.STRING)
 @click_command()
-def main(filenames: Iterable[str]) -> None:
+def main(filenames: Iterable[str]) -> None:  # noqa: PRM002
 	"""
 	Checks the docstring does not occur after any code.
 	"""

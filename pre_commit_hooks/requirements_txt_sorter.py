@@ -109,7 +109,7 @@ def sort_requirements(filename: PathLike, allow_git: bool = False) -> int:
 		)
 @click.argument("filenames", nargs=-1, type=click.STRING)
 @click_command()
-def main(filenames: Iterable[str], allow_git: bool = False) -> None:
+def main(filenames: Iterable[str], allow_git: bool = False) -> None:  # noqa: PRM002
 	"""
 	Sort requirements in the given files.
 	"""

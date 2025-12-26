@@ -65,7 +65,7 @@ from pre_commit_hooks.util import FAIL, PASS
 				(
 						'numpy>=1.19.1; platform_system != "Windows"\nnumpy==1.19.3; platform_system == "Windows"\n',
 						PASS,
-						'numpy>=1.19.1; platform_system != "Windows"\nnumpy==1.19.3; platform_system == "Windows"\n'
+						'numpy>=1.19.1; platform_system != "Windows"\nnumpy==1.19.3; platform_system == "Windows"\n',
 						),
 				(
 						'wxpython>=4.0.7; platform_system == "Windows" and python_version < "3.9"\n'

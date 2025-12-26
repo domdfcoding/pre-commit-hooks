@@ -56,7 +56,7 @@ __all__ = ("main", )
 		)
 @click.argument("filenames", nargs=-1, type=click.STRING)
 @click_command()
-def main(filenames: Iterable[PathLike], specifier: str = ">=") -> None:
+def main(filenames: Iterable[PathLike], specifier: str = ">=") -> None:  # noqa: PRM002
 	"""
 	Bind unbound requirements to the latest version on PyPI, and any later versions.
 	"""
