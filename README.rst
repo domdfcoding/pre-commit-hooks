@@ -66,7 +66,7 @@ See also: https://github.com/pre-commit/pre-commit
 .. |language| image:: https://img.shields.io/github/languages/top/domdfcoding/pre-commit-hooks
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/pre-commit-hooks/v0.4.0
+.. |commits-since| image:: https://img.shields.io/github/commits-since/domdfcoding/pre-commit-hooks/v0.5.0
 	:target: https://github.com/domdfcoding/pre-commit-hooks/pulse
 	:alt: GitHub commits since tagged version
 
@@ -87,7 +87,7 @@ Add this to your ``.pre-commit-config.yaml``
 .. code-block:: yaml
 
 	-   repo: https://github.com/domdfcoding/pre-commit-hooks
-	    rev: v0.4.0  # Use the ref you want to point at
+	    rev: v0.5.0  # Use the ref you want to point at
 	    hooks:
 	    -   id: requirements-txt-sorter
 	    # -   id: ...
@@ -96,7 +96,7 @@ Hooks available
 -----------------
 
 ``requirements-txt-sorter``
-Sorts `PEP 508 <https://www.python.org/dev/peps/pep-0508/>`_ entries in requirements.txt and removes invalid entries, including ``pkg-resources==0.4.0``.
+Sorts `PEP 508 <https://www.python.org/dev/peps/pep-0508/>`_ entries in requirements.txt and removes invalid entries, including ``pkg-resources==0.5.0``.
 
 ``check-docstring-first``
 Checks that the docstring occurs before any module code, but allows additional "docstrings", such as for documenting variables with Sphinx.
