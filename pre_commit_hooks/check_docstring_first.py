@@ -93,7 +93,7 @@ def check_docstring_first(src: bytes, filename: str = "<unknown>") -> int:
 
 @click.argument("filenames", nargs=-1, type=click.STRING)
 @click_command()
-def main(filenames: Iterable[str]) -> None:  # noqa: PRM002
+def main(filenames: Iterable[str]) -> None:
 	"""
 	Checks the docstring does not occur after any code.
 	"""

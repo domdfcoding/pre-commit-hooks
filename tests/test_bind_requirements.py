@@ -106,7 +106,7 @@ from pre_commit_hooks.util import FAIL, PASS
 						id="url",
 						),
 				pytest.param("shutil", FAIL, "shutil", id="not_on_pypi"),
-				]
+				],
 		)
 @pytest.mark.usefixtures("cassette")
 def test_integration(

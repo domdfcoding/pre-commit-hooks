@@ -66,7 +66,7 @@ def sort_requirements(filename: PathLike, allow_git: bool = False) -> int:
 		req_file=filename,
 		include_invalid=True,
 		normalize_func=normalize_keep_dot,
-		)
+	)
 
 	for line in invalid_lines:
 		if line.startswith("git+") and allow_git:
@@ -109,7 +109,7 @@ def sort_requirements(filename: PathLike, allow_git: bool = False) -> int:
 		)
 @click.argument("filenames", nargs=-1, type=click.STRING)
 @click_command()
-def main(filenames: Iterable[str], allow_git: bool = False) -> None:  # noqa: PRM002
+def main(filenames: Iterable[str], allow_git: bool = False) -> None:
 	"""
 	Sort requirements in the given files.
 	"""
