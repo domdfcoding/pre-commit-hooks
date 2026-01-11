@@ -74,7 +74,7 @@ See also: https://github.com/pre-commit/pre-commit
 	:target: https://github.com/domdfcoding/pre-commit-hooks/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2025
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2026
 	:alt: Maintenance
 
 .. end shields
