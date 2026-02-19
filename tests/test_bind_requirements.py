@@ -1,6 +1,7 @@
 # 3rd party
 import pytest
 from coincidence.regressions import AdvancedFileRegressionFixture
+from coincidence.selectors import min_version, only_version
 from consolekit.testing import CliRunner, Result
 from domdf_python_tools.paths import PathPlus
 
@@ -103,7 +104,15 @@ from pre_commit_hooks.util import FAIL, PASS
 						'pyreadline @ https://github.com/domdfcoding/3.10-Wheels/raw/936f0570b561f3cda0be94d93066a11c6fe782f1/pyreadline-2.0-py3-none-any.whl ; python_version == "3.10" and platform_system == "Windows"',
 						FAIL,
 						'pyreadline@ https://github.com/domdfcoding/3.10-Wheels/raw/936f0570b561f3cda0be94d93066a11c6fe782f1/pyreadline-2.0-py3-none-any.whl ; python_version == "3.10" and platform_system == "Windows"\n',
+						id="url_37",
+						marks=only_version(3.7),
+						),
+				pytest.param(
+						'pyreadline@ https://github.com/domdfcoding/3.10-Wheels/raw/936f0570b561f3cda0be94d93066a11c6fe782f1/pyreadline-2.0-py3-none-any.whl ; python_version == "3.10" and platform_system == "Windows"',
+						FAIL,
+						'pyreadline @ https://github.com/domdfcoding/3.10-Wheels/raw/936f0570b561f3cda0be94d93066a11c6fe782f1/pyreadline-2.0-py3-none-any.whl ; python_version == "3.10" and platform_system == "Windows"\n',
 						id="url",
+						marks=min_version(3.8),
 						),
 				pytest.param("shutil", FAIL, "shutil", id="not_on_pypi"),
 				],
