@@ -14,7 +14,6 @@ on_pypi: false
 enable_docs: false
 min_coverage: 95
 use_whey: true
-mypy_version: "0.910"
 
 console_scripts:
  - "requirements-txt-sorter = pre_commit_hooks.requirements_txt_sorter:main"
