@@ -137,3 +137,40 @@ def test_integration(
 			result.stdout.rstrip().replace(path.as_posix(), ".../file.txt"),
 			extension=".md",
 			)
+
+
+@pytest.mark.parametrize(
+		"minimum_py_version",
+		[
+				pytest.param("3.4", id="py34"),
+				pytest.param("3.5", id="py35"),
+				pytest.param("3.6", id="py36"),
+				pytest.param("3.7", id="py37"),
+				pytest.param("3.8", id="py38"),
+				pytest.param("3.9", id="py39"),
+				pytest.param("3.10", id="py310"),
+				pytest.param("3.11", id="py311"),
+				pytest.param("3.12", id="py312"),
+				pytest.param("3.13", id="py313"),
+				],
+		)
+@pytest.mark.usefixtures("cassette")
+def test_integration_min_py(
+		tmp_pathplus: PathPlus,
+		minimum_py_version: str,
+		advanced_file_regression: AdvancedFileRegressionFixture,
+		):
+	path = tmp_pathplus / "file.txt"
+	path.write_text("click\nnumpy\ndomdf-python-tools\n")
+
+	runner = CliRunner()
+
+	result: Result = runner.invoke(main, args=[str(path), "--python-min", minimum_py_version])
+	assert result.exit_code == 1
+
+	advanced_file_regression.check(
+			result.stdout.rstrip().replace(path.as_posix(), ".../file.txt"),
+			extension=".md",
+			)
+
+	advanced_file_regression.check_file(path)

@@ -29,7 +29,7 @@ Bind requirements in ``requirements.txt`` files to the latest version on PyPI.
 
 # stdlib
 import sys
-from typing import Iterable
+from typing import Iterable, Optional
 
 # 3rd party
 import click
@@ -54,9 +54,18 @@ __all__ = ("main", )
 		type=click.STRING,
 		help="The version specifier symbol to use. (default: %(default)s)",
 		)
+@auto_default_option(
+		"--python-min",
+		type=click.STRING,
+		help="The minimum Python version the requirement must support.",
+		)
 @click.argument("filenames", nargs=-1, type=click.STRING)
 @click_command()
-def main(filenames: Iterable[PathLike], specifier: str = ">=") -> None:
+def main(
+		filenames: Iterable[PathLike],
+		specifier: str = ">=",
+		python_min: Optional[str] = None,
+		) -> None:
 	"""
 	Bind unbound requirements to the latest version on PyPI, and any later versions.
 	"""
@@ -66,7 +75,12 @@ def main(filenames: Iterable[PathLike], specifier: str = ">=") -> None:
 	for filename in filenames:
 		filename = PathPlus(filename)
 		try:
-			ret_for_file = bind_requirements(filename, specifier, normalize_func=normalize_keep_dot)
+			ret_for_file = bind_requirements(
+					filename,
+					specifier,
+					normalize_func=normalize_keep_dot,
+					minimum_py_version=python_min,
+					)
 
 			if ret_for_file:
 				print(f"Binding requirements for {filename.as_posix()}")
