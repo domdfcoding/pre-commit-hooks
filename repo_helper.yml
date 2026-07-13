@@ -43,3 +43,5 @@ keywords:
 
 mypy_deps:
  - types-requests
+
+pre_commit_exclude: '^tests/.*\.txt'
